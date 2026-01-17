@@ -1,4 +1,4 @@
-import User from "../models/userModel";
+import User from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -34,7 +34,7 @@ export const register = async (req, res) => {
       },
     });
   } catch (err) {
-    console.error("Register error:", error);
+    console.error("Register error:", err);
     res.status(500).json({
       message: "Server error",
     });
