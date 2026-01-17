@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { port } from "./utils/constants.js";
 import db from "./config/db.js";
 import router from "./routes/auth.routes.js";
+import userRoutes from "./routes/user.routes.js";
 
 db();
 
@@ -12,7 +13,7 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use("/api/auth", router);
-
+app.use("/api/auth", userRoutes);
 // routes
 
 app.get("/", (req, res) => {
